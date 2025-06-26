@@ -62,13 +62,13 @@ export default function ExercisesPage() {
                 <div className="bg-green-50 border-l-4 border-green-400 p-4">
                   <h4 className="font-medium text-green-900 mb-1">Data Flow Analysis</h4>
                   <p className="text-green-800 text-sm italic mb-2">"Trace the data flow from when a user adds a game to cart until the order is completed. What happens at each step?"</p>
-                  <p className="text-xs text-green-600">Include: checkout/page.tsx, ordersController.js, schema.prisma, api.ts</p>
+                  <p className="text-xs text-green-600">Include: checkout/page.tsx, checkout/success/page.tsx, ordersController.js, schema.prisma, api.ts</p>
                 </div>
 
                 <div className="bg-purple-50 border-l-4 border-purple-400 p-4">
                   <h4 className="font-medium text-purple-900 mb-1">Authentication System</h4>
                   <p className="text-purple-800 text-sm italic mb-2">"How does user authentication work in this app? What are the security measures in place?"</p>
-                  <p className="text-xs text-purple-600">Include: authController.js, server.js, Navigation.tsx, api.ts</p>
+                  <p className="text-xs text-purple-600">Include: authController.js, server.js, middleware/auth.js, Navigation.tsx, api.ts</p>
                 </div>
 
                 <div className="bg-orange-50 border-l-4 border-orange-400 p-4">
