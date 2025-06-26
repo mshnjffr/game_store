@@ -35,10 +35,96 @@ A modern full-stack JavaScript application for buying games, built with Next.js 
 
 ## 🛠️ Installation & Setup
 
-### Prerequisites
-- Node.js 18+ and npm 9+
-- PostgreSQL database
-- Git
+### Prerequisites Installation
+
+Before cloning this repository, ensure you have the following tools installed:
+
+#### **macOS Installation**
+
+**1. Install Homebrew (if not already installed)**
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+**2. Install Node.js and npm**
+```bash
+# Install Node.js (includes npm)
+brew install node
+
+# Verify installation
+node --version  # Should show v18.0.0 or higher
+npm --version   # Should show v9.0.0 or higher
+```
+
+**3. Install PostgreSQL**
+```bash
+# Install PostgreSQL
+brew install postgresql@16
+
+# Start PostgreSQL service
+brew services start postgresql@16
+
+# Create a database user (optional)
+createuser --superuser $(whoami)
+```
+
+**4. Install Git**
+```bash
+# Install Git
+brew install git
+
+# Verify installation
+git --version
+```
+
+#### **Windows Installation**
+
+**1. Install Node.js and npm**
+- Visit [nodejs.org](https://nodejs.org/en/download/current)
+- Download the Windows Installer (.msi) for Node.js v24.3.0+
+- Run the installer and follow the setup wizard
+- **Alternative using winget:**
+```powershell
+# Using Windows Package Manager
+winget install OpenJS.NodeJS
+
+# Verify installation
+node --version  # Should show v18.0.0 or higher
+npm --version   # Should show v9.0.0 or higher
+```
+
+**2. Install PostgreSQL**
+- Visit [postgresql.org/download/windows](https://www.postgresql.org/download/windows/)
+- Download the PostgreSQL installer for Windows
+- Run the installer and follow the setup wizard
+- **Remember the password you set for the `postgres` user**
+- **Alternative using winget:**
+```powershell
+winget install PostgreSQL.PostgreSQL
+```
+
+**3. Install Git**
+- Visit [git-scm.com/download/win](https://git-scm.com/download/win)
+- Download Git for Windows
+- Run the installer with default settings
+- **Alternative using winget:**
+```powershell
+winget install Git.Git
+```
+
+**4. Verify Installation (Windows)**
+Open Command Prompt or PowerShell and run:
+```powershell
+node --version
+npm --version
+git --version
+psql --version
+```
+
+### Installation Requirements
+- **Node.js 18+** and **npm 9+**
+- **PostgreSQL 14+** database
+- **Git** for version control
 
 ### 1. Clone the Repository
 ```bash
