@@ -4,177 +4,117 @@
 
 **Prompt:**
 ```
-"Set up a comprehensive Jest testing environment for this Express.js backend. Create the necessary configuration files, test database setup, and helper utilities for API testing. Include setup for mocking Prisma client, session handling, and proper test isolation."
+"Set up a Jest testing environment for this Express.js backend. Create Jest configuration, basic mocking setup for Prisma client, and simple test utilities. Keep it minimal but functional for unit testing controllers."
 ```
 
 **Context Files:**
 - `backend/package.json` (for existing dependencies and scripts)
-- `backend/src/server.js` (for Express app structure)
 - `backend/src/config/prisma.js` (for database configuration)
-- `backend/src/controllers/authController.js` (for session handling patterns)
 
-**Expected Output:** Jest config, test database setup, mocking utilities
-
----
-
-## **Step 2: Authentication Controller Tests**
-
-**Prompt:**
-```
-"Create comprehensive unit tests for the authentication controller. Test all endpoints: register, login, logout, and getSession. Include tests for success cases, validation errors, duplicate users, invalid credentials, session management, and error handling. Mock the Prisma client and bcrypt functions."
-```
-
-**Context Files:**
-- `backend/src/controllers/authController.js`
-- `backend/src/utils/encryption.js` (for password hashing)
-- `backend/src/utils/logger.js` (for logging patterns)
-
-**Expected Output:** Complete test file `__tests__/controllers/authController.test.js`
+**Expected Output:** Jest config file and basic Prisma mocking setup
 
 ---
 
-## **Step 3: Games Controller Tests**
+## **Step 2: Orders Controller Tests**
 
 **Prompt:**
 ```
-"Create unit tests for the games controller covering all endpoints: getAllGames, getGameById, getGamesByCategory, searchGames, and addGameReview. Test different scenarios including pagination, filtering, search parameters, rating calculations, missing games, and proper data formatting with the convertGameFields helper function."
-```
-
-**Context Files:**
-- `backend/src/controllers/gamesController.js`
-- `backend/src/services/inventoryService.js` (for inventory operations)
-- `backend/prisma/schema.prisma` (for data relationships)
-
-**Expected Output:** Complete test file `__tests__/controllers/gamesController.test.js`
-
----
-
-## **Step 4: Orders Controller Tests**
-
-**Prompt:**
-```
-"Create unit tests for the orders controller covering: createOrder, getUserOrders, getOrderById, updateOrderStatus, and getOrderStats. Include tests for order validation, inventory checks, transaction handling, authentication requirements, order status updates, and proper price calculations."
+"Create unit tests for the orders controller covering the main endpoints: createOrder, getUserOrders, and getOrderById. Focus on testing successful operations, basic validation, and error handling. Mock Prisma client responses and keep tests straightforward."
 ```
 
 **Context Files:**
 - `backend/src/controllers/ordersController.js`
-- `backend/src/services/inventoryService.js`
-- `backend/prisma/schema.prisma` (for order relationships)
+- `backend/prisma/schema.prisma` (for order structure)
 
-**Expected Output:** Complete test file `__tests__/controllers/ordersController.test.js`
+**Expected Output:** Test file `__tests__/controllers/ordersController.test.js`
 
 ---
 
-## **Step 5: Categories Controller Tests**
+## **Step 3: Categories Controller Tests**
 
 **Prompt:**
 ```
-"Create unit tests for the categories controller covering getAllCategories, getCategoryBySlug, and getCategoryById. Test successful data retrieval, missing categories, proper error handling, and data formatting consistency."
+"Create unit tests for the categories controller covering getAllCategories, getCategoryBySlug, and getCategoryById. Test successful data retrieval, missing categories, and basic error handling. Keep tests simple and focused."
 ```
 
 **Context Files:**
 - `backend/src/controllers/categoriesController.js`
 - `backend/prisma/schema.prisma` (for category structure)
 
-**Expected Output:** Complete test file `__tests__/controllers/categoriesController.test.js`
+**Expected Output:** Test file `__tests__/controllers/categoriesController.test.js`
 
 ---
 
-## **Step 6: Users Controller Tests**
+## **Step 4: Users Controller Tests**
 
 **Prompt:**
 ```
-"Create unit tests for the users controller covering getUserProfile, updateUserProfile, changePassword, deleteUserAccount, and getUserStats. Include tests for authentication requirements, data validation, password updates, account deletion, and user statistics calculations."
+"Create unit tests for the users controller covering getUserProfile, updateUserProfile, and getUserStats. Focus on basic functionality testing, simple validation, and error scenarios. Mock database responses appropriately."
 ```
 
 **Context Files:**
 - `backend/src/controllers/usersController.js`
-- `backend/src/utils/encryption.js` (for password operations)
-- `backend/src/utils/logger.js`
+- `backend/src/utils/logger.js` (for logging patterns)
 
-**Expected Output:** Complete test file `__tests__/controllers/usersController.test.js`
-
----
-
-## **Step 7: Integration Test Setup**
-
-**Prompt:**
-```
-"Create integration tests that test the full API endpoints using supertest. Set up a test Express app instance and create tests that verify the complete request-response cycle for key user flows: user registration/login, game browsing, and order creation."
-```
-
-**Context Files:**
-- `backend/src/server.js`
-- `backend/src/routes/index.js` (for route structure)
-- All controller files (for endpoint understanding)
-
-**Expected Output:** Integration test file `__tests__/integration/api.test.js`
+**Expected Output:** Test file `__tests__/controllers/usersController.test.js`
 
 ---
 
-## **Step 8: Test Utilities and Helpers**
+## **Step 5: Test Utilities**
 
 **Prompt:**
 ```
-"Create test utility functions and helper modules to support the unit tests. Include mock data generators for users, games, orders, and categories. Create database seeding utilities for tests and helper functions for common test operations like creating authenticated sessions."
+"Create simple test utility functions to support the unit tests. Include basic mock data generators for orders, categories, and users. Keep utilities minimal and focused on the essential test data needed."
 ```
 
 **Context Files:**
 - `backend/prisma/seed.js` (for data examples)
 - `backend/prisma/schema.prisma` (for data structure)
-- All controller files (for data requirements)
 
-**Expected Output:** Test utilities in `__tests__/utils/` directory
+**Expected Output:** Test utilities in `__tests__/utils/mockData.js`
 
 ---
 
 ## **🧪 Testing Sequence:**
 
-1. **Step 1** (Setup) - Foundation for all testing
-2. **Steps 2-6** (Controller Tests) - Can be done in parallel
-3. **Step 7** (Integration Tests) - Requires controller understanding
-4. **Step 8** (Utilities) - Supporting infrastructure
+1. **Step 1** (Setup) - Foundation for testing
+2. **Steps 2-4** (Controller Tests) - Can be done in parallel  
+3. **Step 5** (Utilities) - Supporting helpers
 
 ## **🔍 What to Evaluate:**
 
-- **Test Coverage**: Do tests cover all controller methods and edge cases?
-- **Mocking Strategy**: Are external dependencies (Prisma, bcrypt) properly mocked?
-- **Error Scenarios**: Are error conditions and edge cases tested?
-- **Data Validation**: Are input validation and sanitization tested?
-- **Authentication**: Are session and authentication requirements tested?
-- **Database Operations**: Are Prisma operations and transactions tested?
-- **Response Formats**: Are API responses properly formatted and consistent?
+- **Basic Coverage**: Do tests cover main controller methods?
+- **Mocking**: Are Prisma operations properly mocked?
+- **Error Handling**: Are basic error scenarios tested?
+- **Response Format**: Are API responses correctly structured?
 
 ## **📊 Success Criteria:**
 
-✅ Comprehensive Jest testing environment configured  
-✅ All 5 controller modules have complete unit tests  
-✅ Authentication and session handling thoroughly tested  
-✅ Database operations properly mocked and tested  
-✅ Error scenarios and edge cases covered  
-✅ Integration tests verify end-to-end API functionality  
+✅ Jest testing environment configured and working  
+✅ 3 controller modules have unit tests (Orders, Categories, Users)  
+✅ Database operations properly mocked  
+✅ Basic error scenarios and success cases covered  
 ✅ Test utilities support efficient test development  
-✅ High test coverage (80%+) achieved  
 
 ## **🎯 Goal:**
 
-Develop a comprehensive test suite for the backend API that ensures reliability, catches regressions, and validates business logic. This will demonstrate Cody's ability to understand complex backend code, generate thorough test scenarios, and create maintainable test infrastructure.
+Create focused unit tests for key backend controllers to ensure basic functionality and error handling work correctly. This demonstrates Cody's ability to understand backend code structure and generate practical test scenarios quickly.
 
 ## **💡 Key Testing Patterns to Include:**
 
 **Controller Testing Pattern:**
 ```javascript
-describe('AuthController', () => {
-  describe('register', () => {
-    it('should create user with valid data', async () => {
+describe('OrdersController', () => {
+  describe('createOrder', () => {
+    it('should create order with valid data', async () => {
       // Test implementation
     });
     
-    it('should return 400 for duplicate email', async () => {
+    it('should return 400 for invalid data', async () => {
       // Test implementation
     });
     
-    it('should handle database errors gracefully', async () => {
+    it('should handle database errors', async () => {
       // Test implementation
     });
   });
@@ -184,15 +124,15 @@ describe('AuthController', () => {
 **Mocking Pattern:**
 ```javascript
 jest.mock('../config/prisma', () => ({
-  user: {
-    findUnique: jest.fn(),
+  order: {
     create: jest.fn(),
+    findMany: jest.fn(),
   },
-  game: {
+  category: {
     findMany: jest.fn(),
     findUnique: jest.fn(),
   }
 }));
 ```
 
-**Ready to test? Start with Step 1 and build a comprehensive test suite for your backend APIs!**
+**Ready to test? Start with Step 1 and build focused unit tests for your backend APIs!**
