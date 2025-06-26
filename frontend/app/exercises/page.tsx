@@ -160,6 +160,102 @@ export default function ExercisesPage() {
           </div>
         </div>
 
+        {/* Exercise 3: Refactoring with AI Assistants */}
+        <div className="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="bg-orange-600 text-white px-3 py-1 rounded-md text-sm font-semibold shadow-sm">Exercise 3</span>
+            <h2 className="text-xl font-semibold">Refactoring with Cody</h2>
+          </div>
+          
+          <div className="space-y-4 text-gray-700">
+            <p className="text-gray-600">
+              Learn to use Cody for systematic refactoring by extracting duplicated image URL construction logic into a reusable utility function.
+            </p>
+
+            <div className="bg-orange-50 border border-orange-200 rounded-md p-4">
+              <h3 className="font-semibold text-orange-900 mb-2">🎯 Goal</h3>
+              <p className="text-orange-800 text-sm">
+                Extract repeated image URL construction pattern found in 5+ components into a single utility function. This demonstrates systematic code cleanup and DRY principles.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-2">🔍 Duplicated Pattern to Refactor</h3>
+              <div className="bg-gray-50 border border-gray-200 rounded-md p-4">
+                <p className="text-sm text-gray-600 mb-2">Found in GameCard, GameDetails, Cart, and Checkout components:</p>
+                <pre className="bg-gray-100 p-3 rounded text-xs overflow-x-auto">
+{`const primaryImage = game.images?.find(img => img.isPrimary)?.url;
+const imageUrl = primaryImage 
+  ? \`\${process.env.NEXT_PUBLIC_API_URL}\${primaryImage}\`
+  : '/placeholder-game.jpg';`}
+                </pre>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-2">📋 Refactoring Steps</h3>
+              <div className="space-y-3">
+                
+                <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
+                  <h4 className="font-medium text-blue-900 mb-1">Step 1: Create Utility Function</h4>
+                  <p className="text-blue-800 text-sm italic mb-2">"I've found duplicated image URL construction logic across multiple components. Create a utility function that takes a Game object and returns the full image URL, handling primary image selection and fallback."</p>
+                  <p className="text-xs text-blue-600">Include: lib/utils.ts, types/index.ts, components/game/GameCard.tsx</p>
+                </div>
+
+                <div className="bg-green-50 border-l-4 border-green-400 p-4">
+                  <h4 className="font-medium text-green-900 mb-1">Step 2: Refactor GameCard Component</h4>
+                  <p className="text-green-800 text-sm italic mb-2">"Replace the duplicated image URL construction logic in GameCard with the new utility function. Remove the manual primaryImage and imageUrl logic."</p>
+                  <p className="text-xs text-green-600">Include: components/game/GameCard.tsx, lib/imageUtils.ts (from Step 1)</p>
+                </div>
+
+                <div className="bg-purple-50 border-l-4 border-purple-400 p-4">
+                  <h4 className="font-medium text-purple-900 mb-1">Step 3: Refactor GameDetails Component</h4>
+                  <p className="text-purple-800 text-sm italic mb-2">"Replace the image URL construction in GameDetails. Note: this component has a slightly different pattern - it gets primaryImage object first, then accesses .url."</p>
+                  <p className="text-xs text-purple-600">Include: components/game/GameDetails.tsx, lib/imageUtils.ts</p>
+                </div>
+
+                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                  <h4 className="font-medium text-yellow-900 mb-1">Steps 4-6: Refactor Cart, Checkout &amp; Verify</h4>
+                  <p className="text-yellow-800 text-sm italic mb-2">Replace the pattern in cart and checkout pages, then search the codebase for any remaining instances to ensure complete refactoring.</p>
+                  <p className="text-xs text-yellow-600">Include: app/cart/page.tsx, app/checkout/page.tsx, search entire frontend</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-2">✨ Expected Results</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-gray-50 rounded-md p-4">
+                  <h4 className="font-medium mb-2">Before:</h4>
+                  <ul className="space-y-1 text-sm text-gray-600">
+                    <li>• 15+ lines of duplicated code</li>
+                    <li>• 5+ components with same logic</li>
+                    <li>• Manual image URL construction</li>
+                    <li>• Inconsistent fallback handling</li>
+                  </ul>
+                </div>
+                <div className="bg-gray-50 rounded-md p-4">
+                  <h4 className="font-medium mb-2">After:</h4>
+                  <ul className="space-y-1 text-sm text-gray-600">
+                    <li>• Single utility function</li>
+                    <li>• One line: getGameImageUrl(game)</li>
+                    <li>• Consistent behavior everywhere</li>
+                    <li>• Easy to maintain and modify</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-yellow-50 border border-yellow-200 rounded-md p-4">
+              <h3 className="font-semibold text-yellow-900 mb-2">📖 Detailed Guide</h3>
+              <p className="text-yellow-800 text-sm">
+                For complete step-by-step prompts, context files, and testing criteria, see: 
+                <code className="bg-yellow-100 px-2 py-1 rounded text-xs mx-1">ai-docs/image_refactoring.md</code>
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center text-gray-500 mt-8">
           <p>More exercises coming soon...</p>
         </div>
