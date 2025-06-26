@@ -4,14 +4,14 @@
 
 **Prompt:**
 ```
-"Set up a Jest testing environment for this Express.js backend. Create Jest configuration, basic mocking setup for Prisma client, and simple test utilities. Keep it minimal but functional for unit testing controllers."
+"Set up a basic Jest testing environment for this Express.js backend. Create Jest configuration file and simple Prisma client mocking. No database setup needed - just mock the Prisma client for unit testing controllers."
 ```
 
 **Context Files:**
 - `backend/package.json` (for existing dependencies and scripts)
-- `backend/src/config/prisma.js` (for database configuration)
+- `backend/src/config/prisma.js` (for understanding Prisma usage patterns)
 
-**Expected Output:** Jest config file and basic Prisma mocking setup
+**Expected Output:** Jest config file and Prisma mocking utilities (no database setup)
 
 ---
 
