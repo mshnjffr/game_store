@@ -1,0 +1,152 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  password_hash String
+  first_name    String
+  last_name     String
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  // Relations
+  orders  Order[]
+  reviews Review[]
+
+  @@map("users")
+}
+
+model Category {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  image_url   String?
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  // Relations
+  games Game[]
+
+  @@map("categories")
+}
+
+model Game {
+  id             Int      @id @default(autoincrement())
+  title          String
+  description    String?
+  price          Decimal  @db.Decimal(10, 2)
+  discount_price Decimal? @db.Decimal(10, 2)
+  category_id    Int
+  developer      String
+  publisher      String
+  release_date   DateTime?
+  rating         String? // E, T, M, E10+, etc.
+  platform       String? // PC, PlayStation, Xbox, Nintendo Switch, etc.
+  stock_quantity Int      @default(100)
+  featured       Boolean  @default(false)
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+
+  // Relations
+  category    Category    @relation(fields: [category_id], references: [id])
+  images      GameImage[]
+  order_items OrderItem[]
+  reviews     Review[]
+
+  // Indexes for performance
+  @@index([category_id])
+  @@index([featured])
+  @@index([title])
+  @@index([price])
+  @@map("games")
+}
+
+model GameImage {
+  id         Int      @id @default(autoincrement())
+  game_id    Int
+  url        String
+  alt_text   String?
+  is_primary Boolean  @default(false)
+  created_at DateTime @default(now())
+
+  // Relations
+  game Game @relation(fields: [game_id], references: [id], onDelete: Cascade)
+
+  @@index([game_id])
+  @@map("game_images")
+}
+
+model Order {
+  id               Int         @id @default(autoincrement())
+  user_id          Int
+  total_amount     Decimal     @db.Decimal(10, 2)
+  status           OrderStatus @default(PENDING)
+  shipping_address String
+  created_at       DateTime    @default(now())
+  updated_at       DateTime    @updatedAt
+
+  // Relations
+  user  User        @relation(fields: [user_id], references: [id])
+  items OrderItem[]
+
+  @@index([user_id])
+  @@index([status])
+  @@map("orders")
+}
+
+model OrderItem {
+  id         Int      @id @default(autoincrement())
+  order_id   Int
+  game_id    Int
+  quantity   Int
+  price      Decimal  @db.Decimal(10, 2)
+  created_at DateTime @default(now())
+
+  // Relations
+  order Order @relation(fields: [order_id], references: [id], onDelete: Cascade)
+  game  Game  @relation(fields: [game_id], references: [id])
+
+  @@index([order_id])
+  @@index([game_id])
+  @@map("order_items")
+}
+
+model Review {
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  game_id    Int
+  rating     Int // 1-5 stars
+  comment    String?
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  // Relations
+  user User @relation(fields: [user_id], references: [id])
+  game Game @relation(fields: [game_id], references: [id], onDelete: Cascade)
+
+  // Constraints
+  @@unique([user_id, game_id]) // One review per user per game
+  @@index([game_id])
+  @@index([rating])
+  @@map("reviews")
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}

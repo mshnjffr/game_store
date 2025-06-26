@@ -1,0 +1,23 @@
+Game Cover Images Placeholder Information
+
+Due to copyright restrictions and direct download limitations, placeholder images are being used.
+For a production application, you would:
+
+1. Use official press kits and media assets from publishers
+2. License images appropriately for commercial use
+3. Use CDN links from official sources (Steam, PlayStation Store, etc.)
+4. Generate or commission custom artwork
+
+Current placeholder structure:
+- 1-cover.jpg - Minecraft
+- 2-cover.jpg - Fortnite  
+- 3-cover.jpg - Counter-Strike 2
+- 4-cover.jpg - Call of Duty: Black Ops 6
+- 5-cover.jpg - ROBLOX
+- 6-cover.jpg - Monster Hunter Wilds
+- 7-cover.jpg - Ghost of Yōtei
+- 8-cover.jpg - Grand Theft Auto VI
+- 9-cover.jpg - Mario Kart 8 Deluxe
+- 10-cover.jpg - Phasmophobia
+
+Each placeholder is 1920x1080 and shows the game title for development purposes.

@@ -1,0 +1,43 @@
+{
+  "name": "gamestore-backend",
+  "version": "1.0.0",
+  "description": "Express.js backend for Game E-commerce Store",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "build": "babel src -d dist",
+    "test": "jest",
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "prisma:migrate": "prisma migrate dev",
+    "db:seed": "node prisma/seed.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
+    "express-rate-limit": "^7.1.5",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.3.1",
+    "compression": "^1.7.4",
+    "prisma": "^5.7.0",
+    "@prisma/client": "^5.7.0",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.33.0",
+    "joi": "^17.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "jest": "^29.7.0",
+    "@babel/cli": "^7.23.4",
+    "@babel/core": "^7.23.6",
+    "@babel/preset-env": "^7.23.6"
+  },
+  "keywords": ["express", "ecommerce", "games", "api"],
+  "author": "Your Name",
+  "license": "MIT"
+}
