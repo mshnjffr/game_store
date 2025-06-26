@@ -10,7 +10,7 @@ export default function ExercisesPage() {
         {/* Exercise 1: Code Understanding with AI Assistants */}
         <div className="bg-white border border-gray-200 rounded-lg p-6 mb-6">
           <div className="flex items-center gap-2 mb-4">
-            <span className="bg-blue-500 text-white px-2 py-1 rounded text-sm font-medium">Exercise 1</span>
+            <span className="bg-blue-600 text-white px-3 py-1 rounded-md text-sm font-semibold shadow-sm">Exercise 1</span>
             <h2 className="text-xl font-semibold">Code Understanding with Cody</h2>
           </div>
           
@@ -92,6 +92,71 @@ export default function ExercisesPage() {
             </div>
 
 
+          </div>
+        </div>
+
+        {/* Exercise 2: Code Generation with AI Assistants */}
+        <div className="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="bg-green-600 text-white px-3 py-1 rounded-md text-sm font-semibold shadow-sm">Exercise 2</span>
+            <h2 className="text-xl font-semibold">Code Generation with Cody</h2>
+          </div>
+          
+          <div className="space-y-4 text-gray-700">
+            <p className="text-gray-600">
+              Learn to effectively use Cody for generating new features by implementing a complete wishlist system.
+            </p>
+
+            <div className="bg-blue-50 border border-blue-200 rounded-md p-4">
+              <h3 className="font-semibold text-blue-900 mb-2">🎯 Goal</h3>
+              <p className="text-blue-800 text-sm">
+                Implement a complete wishlist feature from scratch using step-by-step Cody prompts. This tests whether Cody can generate production-ready code by following existing patterns.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-2">📋 Implementation Steps</h3>
+              <div className="space-y-3">
+                
+                <div className="bg-purple-50 border-l-4 border-purple-400 p-4">
+                  <h4 className="font-medium text-purple-900 mb-1">Step 1: Database Schema Design</h4>
+                  <p className="text-purple-800 text-sm italic mb-2">"I need to add a wishlist feature to this e-commerce game application. Based on the existing database schema and patterns, create a Prisma schema for the Wishlist model with proper relationships and constraints."</p>
+                  <p className="text-xs text-purple-600">Include: schema.prisma, seed.js</p>
+                </div>
+
+                <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
+                  <h4 className="font-medium text-blue-900 mb-1">Step 2: Backend API Endpoints</h4>
+                  <p className="text-blue-800 text-sm italic mb-2">"Create RESTful API endpoints for wishlist management (get user wishlist, add game to wishlist, remove from wishlist). Follow the existing controller patterns and error handling conventions."</p>
+                  <p className="text-xs text-blue-600">Include: gamesController.js, ordersController.js, routes/index.js, config/prisma.js</p>
+                </div>
+
+                <div className="bg-green-50 border-l-4 border-green-400 p-4">
+                  <h4 className="font-medium text-green-900 mb-1">Step 3: Frontend API Client</h4>
+                  <p className="text-green-800 text-sm italic mb-2">"Create SIMPLE API client methods for wishlist operations. Use existing patterns and Game type. IMPORTANT: Only create basic CRUD operations that match the backend endpoints exactly."</p>
+                  <p className="text-xs text-green-600">Include: lib/api.ts, types/index.ts, wishlistController.js (from Step 2)</p>
+                </div>
+
+                <div className="bg-orange-50 border-l-4 border-orange-400 p-4">
+                  <h4 className="font-medium text-orange-900 mb-1">Step 4: Wishlist Page Component</h4>
+                  <p className="text-orange-800 text-sm italic mb-2">"Create a wishlist page component. CRITICAL: Use exact image pattern game.images?.find(img =&gt; img.isPrimary)?.url, use existing Game type, handle API failures gracefully."</p>
+                  <p className="text-xs text-orange-600">Include: games/page.tsx, components/game/GameCard.tsx, cart/page.tsx (for image patterns)</p>
+                </div>
+
+                <div className="bg-red-50 border-l-4 border-red-400 p-4">
+                  <h4 className="font-medium text-red-900 mb-1">Steps 5-8: Integration & Testing</h4>
+                  <p className="text-red-800 text-sm italic mb-2">Add wishlist buttons to game cards, integrate navigation, create database migration, and test the complete feature.</p>
+                  <p className="text-xs text-red-600">Include: Navigation.tsx, ui/button.tsx, existing component patterns</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-yellow-50 border border-yellow-200 rounded-md p-4">
+              <h3 className="font-semibold text-yellow-900 mb-2">📖 Detailed Guide</h3>
+              <p className="text-yellow-800 text-sm">
+                For complete step-by-step prompts, context files, and testing criteria, see: 
+                <code className="bg-yellow-100 px-2 py-1 rounded text-xs mx-1">ai-docs/wishlist_implementation.md</code>
+              </p>
+            </div>
           </div>
         </div>
 
