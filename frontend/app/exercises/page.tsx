@@ -256,6 +256,65 @@ const imageUrl = primaryImage
           </div>
         </div>
 
+        {/* Exercise 4: Backend Testing with AI Assistants */}
+        <div className="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="bg-purple-600 text-white px-3 py-1 rounded-md text-sm font-semibold shadow-sm">Exercise 4</span>
+            <h2 className="text-xl font-semibold">Backend Testing with Cody</h2>
+          </div>
+          
+          <div className="space-y-4 text-gray-700">
+            <p className="text-gray-600">
+              Learn to use Cody for generating comprehensive unit tests for backend API controllers with proper mocking and error handling.
+            </p>
+
+            <div className="bg-purple-50 border border-purple-200 rounded-md p-4">
+              <h3 className="font-semibold text-purple-900 mb-2">🎯 Goal</h3>
+              <p className="text-purple-800 text-sm">
+                Create focused unit tests for backend controllers using Jest and Prisma mocking. Demonstrates systematic testing approach with proper error scenarios and response validation.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-2">📋 Testing Steps</h3>
+              <div className="space-y-3">
+                
+                <div className="bg-gray-50 border-l-4 border-gray-400 p-4">
+                  <h4 className="font-medium text-gray-900 mb-1">Step 1: Setup Testing Environment</h4>
+                  <p className="text-gray-800 text-sm italic mb-2">"Set up a basic Jest testing environment for this Express.js backend. Create Jest configuration file and simple Prisma client mocking. No database setup needed - just mock the Prisma client."</p>
+                  <p className="text-xs text-gray-600">Include: package.json, src/config/prisma.js</p>
+                </div>
+
+                <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
+                  <h4 className="font-medium text-blue-900 mb-1">Step 2: Orders Controller Tests</h4>
+                  <p className="text-blue-800 text-sm italic mb-2">"Create unit tests for the orders controller covering createOrder, getUserOrders, and getOrderById. Focus on testing successful operations, basic validation, and error handling."</p>
+                  <p className="text-xs text-blue-600">Include: controllers/ordersController.js, prisma/schema.prisma</p>
+                </div>
+
+                <div className="bg-green-50 border-l-4 border-green-400 p-4">
+                  <h4 className="font-medium text-green-900 mb-1">Step 3: Users Controller Tests</h4>
+                  <p className="text-green-800 text-sm italic mb-2">"Create unit tests for the users controller covering getUserProfile, updateUserProfile, and getUserStats. Focus on basic functionality testing, simple validation, and error scenarios."</p>
+                  <p className="text-xs text-green-600">Include: controllers/usersController.js, utils/logger.js</p>
+                </div>
+
+                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                  <h4 className="font-medium text-yellow-900 mb-1">Step 4: Test Utilities</h4>
+                  <p className="text-yellow-800 text-sm italic mb-2">"Create simple test utility functions to support the unit tests. Include basic mock data generators for orders and users. Keep utilities minimal and focused."</p>
+                  <p className="text-xs text-yellow-600">Include: prisma/seed.js, prisma/schema.prisma</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-yellow-50 border border-yellow-200 rounded-md p-4">
+              <h3 className="font-semibold text-yellow-900 mb-2">📖 Detailed Guide</h3>
+              <p className="text-yellow-800 text-sm">
+                For complete step-by-step prompts, context files, and testing patterns, see: 
+                <code className="bg-yellow-100 px-2 py-1 rounded text-xs mx-1">ai-docs/test_generation.md</code>
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center text-gray-500 mt-8">
           <p>More exercises coming soon...</p>
         </div>
