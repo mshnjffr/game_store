@@ -30,22 +30,7 @@
 
 ---
 
-## **Step 3: Categories Controller Tests**
-
-**Prompt:**
-```
-"Create unit tests for the categories controller covering getAllCategories, getCategoryBySlug, and getCategoryById. Test successful data retrieval, missing categories, and basic error handling. Keep tests simple and focused."
-```
-
-**Context Files:**
-- `backend/src/controllers/categoriesController.js`
-- `backend/prisma/schema.prisma` (for category structure)
-
-**Expected Output:** Test file `__tests__/controllers/categoriesController.test.js`
-
----
-
-## **Step 4: Users Controller Tests**
+## **Step 3: Users Controller Tests**
 
 **Prompt:**
 ```
@@ -60,11 +45,11 @@
 
 ---
 
-## **Step 5: Test Utilities**
+## **Step 4: Test Utilities**
 
 **Prompt:**
 ```
-"Create simple test utility functions to support the unit tests. Include basic mock data generators for orders, categories, and users. Keep utilities minimal and focused on the essential test data needed."
+"Create simple test utility functions to support the unit tests. Include basic mock data generators for orders and users. Keep utilities minimal and focused on the essential test data needed."
 ```
 
 **Context Files:**
@@ -78,8 +63,8 @@
 ## **🧪 Testing Sequence:**
 
 1. **Step 1** (Setup) - Foundation for testing
-2. **Steps 2-4** (Controller Tests) - Can be done in parallel  
-3. **Step 5** (Utilities) - Supporting helpers
+2. **Steps 2-3** (Controller Tests) - Can be done in parallel  
+3. **Step 4** (Utilities) - Supporting helpers
 
 ## **🔍 What to Evaluate:**
 
@@ -91,7 +76,7 @@
 ## **📊 Success Criteria:**
 
 ✅ Jest testing environment configured and working  
-✅ 3 controller modules have unit tests (Orders, Categories, Users)  
+✅ 2 controller modules have unit tests (Orders, Users)  
 ✅ Database operations properly mocked  
 ✅ Basic error scenarios and success cases covered  
 ✅ Test utilities support efficient test development  
@@ -128,9 +113,9 @@ jest.mock('../config/prisma', () => ({
     create: jest.fn(),
     findMany: jest.fn(),
   },
-  category: {
-    findMany: jest.fn(),
+  user: {
     findUnique: jest.fn(),
+    update: jest.fn(),
   }
 }));
 ```
